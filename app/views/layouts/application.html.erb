@@ -2,13 +2,35 @@
 <html>
 <head>
   <title>Hubmentor</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <% if notice %>
+      <div id="notice_wrapper">
+       <p class="notice"><%= notice %></p>
+      </div>
+    <% elsif alert %>
+      <div id="notice_wrapper">
+       <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
 
+ <% unless current_page?(root_path) %>
+  <%= render 'layouts/header' %>
+ <% end %>
 <%= yield %>
-
+ <script>
+$(document).ready(function(){
+  setTimeout(function(){
+   $('#notice_wrapper').fadeOut("slow",function(){
+    $this.remove();
+    }):
+  }, 3500);
+});
+ </script>
 </body>
 </html>
