@@ -4,9 +4,9 @@
  	<a href="#" id="logo">Hub Mentors</a>
   <nav>
  	<ul>
-	<li><a href="#"></a>Explore</li>
-        <%= link_to "Sign In", new_mentor_session_path %>
-        <%= link_to "Start Mentoring", new_mentor_registration_path, class: "button button_highlight" %>
+	<li><%= link_to "Explore", mentors_path %></li>
+        <li><%= link_to "Sign In", new_mentor_session_path %></li>
+        <li><%= link_to "Start Mentoring", new_mentor_registration_path, class: "button button_highlight" %></li>
         </ul>
   </nav>
   </div>
