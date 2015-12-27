@@ -1,0 +1,22 @@
+<div id="banner" class="podcasts_banner">
+    <h1>Explore how mentors are changing the world.</h1>
+</div>
+
+ <div id="podcasts" class="cf">
+  <div class="wrapper">
+   <ul class="cf">
+   <% @mentors.each do |mentor| %>
+    <% link_to mentor do %>
+    <li>
+     <%= image_tag mentor.thumbnail.url(:medium) %>
+      <div class="podcast_overview">
+      <h2><%= mentor.title %></h2>
+       <p class="episode_count"><% mentor.episode.count %></p>
+      </div>
+    </li>
+   <% end %>
+  <% end %>
+  </ul>
+   <%= will_paginate @mentor %>
+   </div>
+ </div>
