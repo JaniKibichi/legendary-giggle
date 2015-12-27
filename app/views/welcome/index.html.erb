@@ -1,19 +1,19 @@
-<div id="background">
- 	  <header class="cf">
- 	  	<div class="wrapper_wide">
-	  	<a href="#" id="logo">Hub Mentors</a>
-	  	<nav>
-	  		<ul>
-	  			<li><a href="#"></a>Explore</li>
-	  			<li><a href="#"></a>Sign In</li>
-	  			<li><a href="#"></a>Start Mentoring</li>
-	  		</ul>
-	  	</nav>
-	  	</div>
-      </header>
-	  <div class="wrapper_skinny">
-	      <h1>Mentor the World <br> while on holiday!</h1>
-		  <a href="#" class="button button_highlight">Start Mentoring</a>
-		  <a href="#" class="button button_white">How it works</a>
-	  </div>
+  <div id="background">
+   <header class="cf">
+  	<div class="wrapper_wide">
+ 	<a href="#" id="logo">Hub Mentors</a>
+  <nav>
+ 	<ul>
+	<li><a href="#"></a>Explore</li>
+        <%= link_to "Sign In", new_mentor_session_path %>
+        <%= link_to "Start Mentoring", new_mentor_registration_path, class: "button button_highlight" %>
+        </ul>
+  </nav>
+  </div>
+   </header>
+   <div class="wrapper_skinny">
+    <h1>Mentor the World <br>-and catch a holiday!</h1>
+    <%= link_to "Start Mentoring", new_mentor_registration_path, class: "button button_highlight" %>
+    <%= link_to "How it works", how_index_path, class: "button button_white" %>
+  </div>
   </div>
