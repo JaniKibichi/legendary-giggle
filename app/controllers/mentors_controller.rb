@@ -1,6 +1,6 @@
 class MentorsController < ApplicationController
  before_action :find_mentor, only: [:show, :dashboard]
- before_action :find_episode, only: [:show, :dashboard]
+ before_action :find_episode, only: [:index, :show, :dashboard]
 
  def index
   @mentors = Mentor.all.order("created_at desc").paginate(:page => params[:page], :per_page => 12)
