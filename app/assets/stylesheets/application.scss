@@ -1,13 +1,30 @@
+@import 'normalize';
+
+$border: #E9E9E9;
 $white: #FFFFFF;
 $highlight: #d2674e;
 $dark: #22292e;
 $disabled: #EDEFF5;
 $lessDisabled: #C0C0C0;
 $light: #EDEFF5;
+$banner: #AFC94C;
 
 body{
 	font-family: 'Open Sans', sans-serif;
 }
+
+         ul{
+           list-style: none;
+           margin: 0;
+           li{
+            display: inline;
+            margin-left: 2.5rem;
+            a{
+             color: $dark;
+             text-decoration: none;
+            }
+           }
+          }
 
 .wrapper_wide{
 	width: 90%;
@@ -80,6 +97,19 @@ body{
 	margin: 0 auto;
 }
 
+.mentorlist{
+	color: $dark;
+        text-align: center;
+	text-decoration: none;
+	font-size: .75rem;
+	padding: .75rem 1rem;
+	border-radius: 2rem;
+        min-width: 8rem;
+	outline: none;
+	border: none;
+	display: inline-block;
+}
+
 #main_header{
 	color: $dark;
 	background: $white;
@@ -115,13 +145,13 @@ body{
 	margin-bottom: 4rem;
 	h1{
 	 text-align: center;
-	 color: $white;
+	 color: $banner;
 	 font-size: 3rem;
 	 font-weight: 300;
 	 letter-spacing: 1px;
 	 margin: 0;
 	 padding: 8rem 0;
-	}
+  }
 }
 
 .podcasts_banner{
@@ -135,6 +165,196 @@ body{
 .sign_up_banner{
 		background-image: image-url("welcome_signUp.jpg");
 }
+
+
+//----For posts
+#posts_wrapper{
+	padding: 3em 0;
+	.post{
+		text-align: center;
+		.date{
+		 font-size: .9em;
+		 margin: 0;
+		}
+		h2{
+		 margin-bottom: 0;
+		 font-size: 2em;
+		 text-transform: uppercase;
+		 a{
+		  text-decoration: none;
+		  color: $dark;
+		  &:hover{
+		  	color: $highlight;
+		  }
+		 }
+		}
+		hr{
+		 margin: 3em auto;
+		}
+	}
+}
+
+
+  *{
+	box-sizing: border-box;
+}
+
+.skinny_wrapper{
+	width: 80%;
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+.wrapper-padding{
+	padding: 4rem 0;
+}
+
+.clearfix:before,
+.clearfix:after{
+	content: " ";
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+
+.hidden{
+ display: none;
+}
+
+
+h1,h2,h3,h4,h5,h6,p,ul,li{
+	color: $dark;	
+}
+
+h1{
+	font-size: 2.5rem;
+}
+
+h2{
+	font-size: 2rem;
+}
+
+h3{
+	font-size: 1.75rem;
+}
+
+h4{
+	font-size: 1.375rem;
+}
+
+h5{
+	font-size: 1.25rem;
+}
+
+h6{
+	font-size: 1rem;
+}
+
+p,li{
+	font-size: 1.1rem;
+	line-height: 1.75;
+}
+
+p,ul,ol{
+	margin: 0 0 1.6em 0;
+}
+
+hr{
+ width: 3em;
+ display: block;
+ height: 2px;
+ border: 0;
+ border-top: 2px solid $highlight;
+ margin: 2rem 0;
+}
+
+#page_title{
+	text-align: center;
+	border-bottom: 1px solid $border;
+	padding: 3em 0;
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+#main_footer {
+	padding: 2.5em 5%;
+	border-top: 1px solid $border;
+	.copyright{
+	 float: left;
+	 font-size: .9em;
+	 margin: 0;
+	}
+	nav{
+	 float: right;
+	 i{
+	  color: $dark;
+	  margin-left: 1em;
+	  padding-top: .2em;
+	  &:hover{
+	  	color: $highlight;
+	  }
+	 }
+	}
+}
+
+
+
+//---------- Posts Show
+#post_show_content{
+	header{
+	 text-align: center;
+	 .date{
+	   font-size: .9em;
+	   color: $light;
+	   margin: 0;
+	 }
+	 h1{
+	  margin: 0;
+	 }
+    }
+    hr{
+	  margin: 3em auto;
+	}
+}
+#share_box{
+	text-align: center;
+	p{
+	 padding: 0 0 1em 0;
+	 margin: 0;
+	 font-weight: 700;
+	 text-transform: uppercase;
+	 color: $dark;
+	 font-size: .8em;
+	}
+	i{
+	 color: $dark;
+	 padding: 1em 1.5em;
+	 &:hover{
+	  color: $highlight;
+	  cursor: pointer;
+	 }
+	}
+}
+
+
+#admin_links{
+ border-top: 1px solid $border;
+ border-bottom: 1px solid $border;
+ text-align: center;
+ padding: 1em 0;
+ margin: 3em 0;
+ a{
+ color: $light;
+ margin: 0 1em;
+ font-weight: 700;
+ font-size: .8em;
+ text-transform: uppercase;
+ text-decoration: none;
+ }
+}
+
+//---For Pagination
 
 .pagination:before, .pagination:after{
 	content: " ";
@@ -200,6 +420,7 @@ textarea{
  padding: 0 0 5rem 0;
 }
 
-@import 'normalize';
 @import 'welcome';
 @import 'podcasts';
+@import 'pygments';
+

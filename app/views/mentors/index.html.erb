@@ -1,9 +1,19 @@
 <div id="banner" class="podcasts_banner">
-    <h1>Explore how mentors are changing the world.</h1>
+    <h1 class="highlight">Explore a mentor's story.</h1>
 </div>
 
  <div id="podcasts" class="cf">
   <div class="wrapper">
+
+ <div id="breadcrumb">
+ <ul>
+          <li><%= link_to "All Mentors", mentors_path, class:"mentorlist" %></li>
+          <% Category.all.each do |category| %>
+          <li class="subscribe_link"><%= link_to category.name, mentors_path(category: category.name ), class:"mentorlist" %></li>
+          <% end %>
+ </ul>
+ </div>
+
    <ul class="cf">
    <% @mentors.each do |mentor| %>
     <% link_to mentor do %>
@@ -11,7 +21,8 @@
      <%= image_tag mentor.thumbnail.url(:medium) %>
       <div class="podcast_overview">
       <h2><%= mentor.title %></h2>
-       <p class="episode_count"><% mentor.episode.count %></p>
+      <h4><%= mentor.category %></h4> 
+       <p class="episode_count"><% @episodes.count %></p>
       </div>
     </li>
    <% end %>

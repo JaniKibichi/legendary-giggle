@@ -3,7 +3,12 @@ class MentorsController < ApplicationController
  before_action :find_episode, only: [:index, :show, :dashboard]
 
  def index
-  @mentors = Mentor.all.order("created_at desc").paginate(:page => params[:page], :per_page => 12)
+   if params[:category].blank?
+     @mentors = Mentor.all.order("created_at desc").paginate(:page => params[:page], :per_page => 12)
+   else
+     @category_id = Category.find_by(name: params[:category]).id
+     @mentors = Mentor.where(category_id: @category_id).order("created_at desc").paginate(:page => params[:page], :per_page => 12)
+   end
  end
 
  def show
@@ -14,14 +19,14 @@ class MentorsController < ApplicationController
 
  private
  def find_episode
-  @episodes = Episode.where(mentor_id: @mentor).order("created_at desc").paginate(:page => params[:page], :per_page => 5)
+  @episodes = Episode.friendly.where(mentor_id: @mentor).order("created_at desc").paginate(:page => params[:page], :per_page => 5)
  end
 
  def find_mentor
   if params[:id].nil?
     @mentor = current_mentor
   else
-    @mentor = mentor.find(params[:id])
+    @mentor = Mentor.friendly.find(params[:id])
   end
  end
 end

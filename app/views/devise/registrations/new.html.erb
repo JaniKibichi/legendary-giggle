@@ -1,5 +1,5 @@
 <div id="banner" class="sign_up_banner">
-  <h1>It's a great day to change the world! <br>Let's get started...</h1>
+  <h1 class="highlight">It's a great day to change the world! <br>Let's get started...</h1>
 </div>
 
 <div id="form">
@@ -16,6 +16,12 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a Category"} %>
   </div>
 
   <div class="field">

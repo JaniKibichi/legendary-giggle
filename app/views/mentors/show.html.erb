@@ -23,8 +23,10 @@
      <div id="breadcrumb">
       <%= link_to mentors_path do %>
         All podcasts
+       <span>/</span>
+        <%= @mentor.category %>
         <span>/</span>
-        <%= @mentor.title %>
+        <%= @mentor.category %>
       <% end %>
      </div>
 
@@ -51,5 +53,3 @@
      </div>
     </div>
 
-
-   <%= will_paginate @episode %>

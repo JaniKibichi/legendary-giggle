@@ -18,7 +18,7 @@ class EpisodesController < ApplicationController
  end 
 
  def show
-  @episode = Episode.where(mentor_id: @mentor.order("created_at desc").limit(5).reject { |e| e.id ==@episode.id}  
+  @episode = Episode.friendly.where(mentor_id: @mentor.order("created_at desc").limit(5).reject { |e| e.id ==@episode.id}  
  end
 
  def edit
@@ -39,15 +39,15 @@ class EpisodesController < ApplicationController
 
  private
  def episode_params
-  params.require(:episode).permit(:title, :description, :episode_thumbnail, :mp3)
+  params.require(:episode).permit(:title, :description, :episode_thumbnail, :mp3, :slug)
  end
 
  def find_mentor
-  @mentor = mentor.find(params[:mentor_id])
+  @mentor = mentor.friendly.find(params[:mentor_id])
  end
 
  def find_episode
-  @episode = Episode.find(params[:id])
+  @episode = Episode.friendly.find(params[:id])
  end
 
  def require_permission

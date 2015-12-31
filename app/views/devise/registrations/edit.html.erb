@@ -8,7 +8,7 @@
      <div class="wrapper_skinny">
       <ul>
         <li><%= link_to "Episodes", root_path %></li>
-        <li><%= link_to "New Episode", new_mentor_episode_path(@mentor, episode) %></li>
+        <li><%= link_to "New Episode", new_mentor_episode_path(@mentor, @episode) %></li>
         <li><% link_to "Account Settings", edit_mentor_registration_path %></li>
         <li><%= link_to "View mentor", mentor_path(current_mentor) %></li>    
       </ul>	
@@ -42,6 +42,11 @@
     <%= f.email_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a Category"} %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -59,7 +64,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :Twitter handle %><br />
+    <%= f.label :Twitter_handle %><br />
     <%= f.text_field :twitter %>
   </div>
 

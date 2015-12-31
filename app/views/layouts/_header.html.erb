@@ -3,17 +3,22 @@
  <%= link_to "Hub Mentors", root_path, id:"logo" %>
 
   <nav>
-   <ul>
-    <% unless journey_signed_in? %>
-    <li><%= link_to "Explore", mentors_path %></li>
-    <li><%= link_to "Sign In", new_mentor_session_path %></li>
+    <ul>
+    <% unless mentor_signed_in? %>
+    <li><%= link_to "Mentors", mentors_path %></li>
+    <li><%= link_to "Hubs", hubs_path %></li>
     <li><%= link_to "Start Mentoring", new_mentor_registration_path %></li>
+    <li><%= link_to "Sign In", new_mentor_session_path %></li>
     <% else %>
     <li><%= link_to "Dashboard", root_path %></li>
-    <li><%= link_to "Explore", mentors_path %></li>
+    <li><%= link_to "Mentors", mentors_path %></li>
+    <li><%= link_to "Hubs", hubs_path %></li>
+    <li><%= link_to "Plan Trip", schedules_path %></li>
+    <li><%= link_to "Contact", new_contact_path %></li>         
     <li><%= link_to "Sign Out", destroy_mentor_session_path, method: :delete %></li>
     <% end %>
    </ul>
-  </nav>
+
+ </nav>
  </div>
  </header>
